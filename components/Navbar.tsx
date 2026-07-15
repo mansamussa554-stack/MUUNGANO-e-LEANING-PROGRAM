@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Menu, X } from "lucide-react";
 
 export default function Navbar() {
@@ -14,7 +15,7 @@ export default function Navbar() {
 
         {/* Logo */}
 
-        <div className="flex items-center gap-3">
+        <Link href="/" className="flex items-center gap-3">
 
           <Image
             src="/images/logo.png"
@@ -35,25 +36,25 @@ export default function Navbar() {
 
           </div>
 
-        </div>
+        </Link>
 
         {/* Desktop Menu */}
 
         <ul className="hidden lg:flex gap-8 font-semibold">
 
-          <li className="hover:text-yellow-300 cursor-pointer">Home</li>
+          <li><Link href="/">Home</Link></li>
 
-          <li className="hover:text-yellow-300 cursor-pointer">About</li>
+          <li><Link href="/about">About</Link></li>
 
-          <li className="hover:text-yellow-300 cursor-pointer">Modules</li>
+          <li><Link href="/courses">Modules</Link></li>
 
-          <li className="hover:text-yellow-300 cursor-pointer">Videos</li>
+          <li><Link href="/videos">Videos</Link></li>
 
-          <li className="hover:text-yellow-300 cursor-pointer">Quiz</li>
+          <li><Link href="/quiz">Quiz</Link></li>
 
-          <li className="hover:text-yellow-300 cursor-pointer">Certificates</li>
+          <li><Link href="/certificate">Certificates</Link></li>
 
-          <li className="hover:text-yellow-300 cursor-pointer">Contact</li>
+          <li><Link href="/contact">Contact</Link></li>
 
         </ul>
 
@@ -61,13 +62,19 @@ export default function Navbar() {
 
         <div className="hidden lg:flex gap-4">
 
-          <button className="px-6 py-2 rounded-full bg-yellow-500 hover:bg-yellow-600 text-black font-bold">
+          <Link
+            href="/login"
+            className="px-6 py-2 rounded-full bg-yellow-500 hover:bg-yellow-600 text-black font-bold"
+          >
             Login
-          </button>
+          </Link>
 
-          <button className="px-6 py-2 rounded-full border border-white hover:bg-white hover:text-green-700 font-bold">
+          <Link
+            href="/register"
+            className="px-6 py-2 rounded-full border border-white hover:bg-white hover:text-green-700 font-bold"
+          >
             Register
-          </button>
+          </Link>
 
         </div>
 
@@ -90,27 +97,33 @@ export default function Navbar() {
 
           <ul className="space-y-5">
 
-            <li>Home</li>
+            <li><Link href="/">Home</Link></li>
 
-            <li>About</li>
+            <li><Link href="/about">About</Link></li>
 
-            <li>Modules</li>
+            <li><Link href="/courses">Modules</Link></li>
 
-            <li>Videos</li>
+            <li><Link href="/videos">Videos</Link></li>
 
-            <li>Quiz</li>
+            <li><Link href="/quiz">Quiz</Link></li>
 
-            <li>Certificates</li>
+            <li><Link href="/certificate">Certificates</Link></li>
 
-            <li>Contact</li>
+            <li><Link href="/contact">Contact</Link></li>
 
-            <button className="w-full bg-yellow-500 py-3 rounded-full text-black font-bold mt-4">
+            <Link
+              href="/login"
+              className="block w-full bg-yellow-500 py-3 rounded-full text-center text-black font-bold mt-4"
+            >
               Login
-            </button>
+            </Link>
 
-            <button className="w-full border py-3 rounded-full mt-3">
+            <Link
+              href="/register"
+              className="block w-full border py-3 rounded-full text-center mt-3"
+            >
               Register
-            </button>
+            </Link>
 
           </ul>
 
