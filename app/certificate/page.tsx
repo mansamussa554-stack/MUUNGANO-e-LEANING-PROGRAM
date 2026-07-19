@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import { supabase } from "../../lib/supabase";
 import Certificate from "../../components/Certificate";
-import DownloadCertificate from "../../components/DownloadCertificate";
 
 export default function CertificatePage() {
   const [name, setName] = useState("");
@@ -17,13 +16,13 @@ export default function CertificatePage() {
 
       if (!user) return;
 
-      const { data, error } = await supabase
+      const { data } = await supabase
         .from("certificates")
         .select("*")
         .eq("user_id", user.id)
         .single();
 
-      if (!error && data) {
+      if (data) {
         setName(data.full_name);
         setCourse(data.course_title);
       }
@@ -34,21 +33,10 @@ export default function CertificatePage() {
 
   return (
     <div className="min-h-screen bg-gray-100 py-10">
-
       <Certificate
         fullName={name}
         course={course}
       />
-
-      <div className="flex justify-center mt-8">
-
-        <DownloadCertificate
-          fullName={name}
-          course={course}
-        />
-
-      </div>
-
     </div>
   );
 }
